@@ -132,8 +132,7 @@ console.log('MONGODB_URL:', process.env.MONGODB_URL);
 mongoose.set('strictQuery', false);
 mongoose
   .connect(process.env.MONGODB_URL, {useUnifiedTopology:true,
-    useNewUrlParser: true,
-    useCreateIndex: true })
+    useNewUrlParser: true })
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(process.env.PORT || 4000, () => {
