@@ -125,6 +125,9 @@ app.delete('/pdf/:id', async (req, res) => {
   }
 });
 
+console.log('MONGODB_URL:', process.env.MONGODB_URL);
+
+
 // Start the Express server
 mongoose.set('strictQuery', false);
 mongoose
