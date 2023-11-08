@@ -129,7 +129,7 @@ mongoose
   .connect(process.env.MONGODB_URL)
   .then(() => {
     console.log('Connected to MongoDB');
-    app.listen(4000, () => {
+    app.listen(process.env.PORT || 4000, () => {
       console.log('Node API app is running on port 4000');
     });
   })
