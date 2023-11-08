@@ -1,3 +1,5 @@
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -6,7 +8,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-require('dotenv').config();
 
 const cors = require('cors');
 app.use(cors());
