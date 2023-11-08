@@ -1,11 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-require('dotenv').config({ path: '.env'});
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+require('dotenv').config();
 
 const cors = require('cors');
 app.use(cors());
@@ -126,7 +127,9 @@ app.delete('/pdf/:id', async (req, res) => {
 // Start the Express server
 mongoose.set('strictQuery', false);
 mongoose
-  .connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGODB_URL, {useUnifiedTopology:true,
+    useNewUrlParser: true,
+    useCreateIndex: true })
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(process.env.PORT || 4000, () => {
