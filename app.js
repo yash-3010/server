@@ -23,6 +23,11 @@ const Pdf = mongoose.model('Pdf', pdfSchema);
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 
+// home route just to check if the server is running
+app.get('/', (req, res) => {
+  res.json({ message: 'Node API app is running' });
+});
+
 // Upload PDFs route
 app.post('/upload', upload.single('pdf'), async (req, res) => {
   try {
